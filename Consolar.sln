@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consolar", "Consolar\Consolar.csproj", "{3E53DF73-D9BB-47DA-AAD4-F533630C0683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolarTest", "ConsolarTest\ConsolarTest.csproj", "{A068AE5A-8348-4C54-B6DB-143AA26AAF46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E53DF73-D9BB-47DA-AAD4-F533630C0683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E53DF73-D9BB-47DA-AAD4-F533630C0683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E53DF73-D9BB-47DA-AAD4-F533630C0683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E53DF73-D9BB-47DA-AAD4-F533630C0683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A068AE5A-8348-4C54-B6DB-143AA26AAF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A068AE5A-8348-4C54-B6DB-143AA26AAF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A068AE5A-8348-4C54-B6DB-143AA26AAF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A068AE5A-8348-4C54-B6DB-143AA26AAF46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
