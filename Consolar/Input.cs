@@ -16,6 +16,7 @@ namespace SteamB23.Consolar
                 {
                     Console.ReadKey(true);
                 }
+                OnKeyInput(keyInfo);
             }
             else
             {
