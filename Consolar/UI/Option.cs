@@ -13,6 +13,9 @@ namespace SteamB23.Consolar.UI
 
         InputManager inputMgr = new InputManager();
 
+        /// <summary>
+        /// 선택하지 않았을 때의 전경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor ForegroundColor
         {
             get
@@ -26,6 +29,9 @@ namespace SteamB23.Consolar.UI
             }
         }
 
+        /// <summary>
+        /// 선택하지 않았을 때의 배경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor BackgroundColor
         {
             get
@@ -38,7 +44,9 @@ namespace SteamB23.Consolar.UI
                 this.backgroundColor = value;
             }
         }
-
+        /// <summary>
+        /// 선택했을 때의 전경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor SelectedForegroundColor
         {
             get
@@ -51,7 +59,9 @@ namespace SteamB23.Consolar.UI
                 this.selectedForegroundColor = value;
             }
         }
-
+        /// <summary>
+        /// 선택했을 때의 배경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor SelectedBackgroundColor
         {
             get
@@ -65,14 +75,41 @@ namespace SteamB23.Consolar.UI
             }
         }
 
+        /// <summary>
+        /// <seealso cref="UI.TextLine"/>의 인스턴스를 가져옵니다.
+        /// </summary>
+        public TextLine TextLine
+        {
+            get
+            {
+                return textLine;
+            }
+        }
+
+        /// <summary>
+        /// 옵션의 원소 배열과 위치, 길이, 색상 등을 사용하여 <see cref="Option"/>클래스의 인스턴스를 초기화합니다.
+        /// </summary>
+        /// <param name="elements">옵션의 원소들입니다.</param>
+        /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
+        /// <param name="top">출력할 텍스트의 세로 위치입니다.</param>
+        /// <param name="length">출력할 텍스트의 최대 길이입니다.</param>
+        /// <param name="foregroundColor">선택되지 않은 텍스트의 전경색입니다.</param>
+        /// <param name="backgroundColor">선택되지 않은 텍스트의 배경색입니다.</param>
+        /// <param name="selectedForegroundColor">선택된 텍스트의 전경색입니다.</param>
+        /// <param name="selectedBackgroundColor">선택된 텍스트의 배경색입니다.</param>
+        /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public Option(string[] elements, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor selectedForegroundColor = ConsoleColor.White, ConsoleColor selectedBackgroundColor = ConsoleColor.Black, bool isRight = false)
         {
-            textLine = new TextLine(elements, left, top, length, foregroundColor, backgroundColor, isRight);
+            this.textLine = new TextLine(elements, left, top, length, foregroundColor, backgroundColor, isRight);
             this.ForegroundColor = foregroundColor;
             this.BackgroundColor = backgroundColor;
             this.SelectedForegroundColor = selectedForegroundColor;
             this.SelectedBackgroundColor = selectedBackgroundColor;
         }
+        /// <summary>
+        /// 선택지를 표시한 후 선택된 원소의 번호를 반환합니다.
+        /// </summary>
+        /// <returns>선택된 원소의 번호</returns>
         public int GetSelect()
         {
             int currentSelectedNumber = 0;

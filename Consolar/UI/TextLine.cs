@@ -2,10 +2,17 @@
 
 namespace SteamB23.Consolar.UI
 {
+    /// <summary>
+    /// 콘솔에 여러줄의 텍스트를 표시하도록 여러 ConsoleText를 포함합니다.
+    /// </summary>
     public class TextLine : IPresentable
     {
         ConsoleText[] consoleTexts;
         string originText;
+
+        /// <summary>
+        /// 텍스트를 가져오거나 설정합니다.
+        /// </summary>
         public string Text
         {
             get
@@ -25,6 +32,9 @@ namespace SteamB23.Consolar.UI
                 originText = value;
             }
         }
+        /// <summary>
+        /// <seealso cref="ConsoleText"/>의 인스턴스 배열을 가져옵니다.
+        /// </summary>
         public ConsoleText[] ConsoleTexts
         {
             get
@@ -32,6 +42,9 @@ namespace SteamB23.Consolar.UI
                 return this.consoleTexts;
             }
         }
+        /// <summary>
+        /// 열의 최대 길이를 가져옵니다.
+        /// </summary>
         public int Row
         {
             get
@@ -39,6 +52,9 @@ namespace SteamB23.Consolar.UI
                 return consoleTexts.Length;
             }
         }
+        /// <summary>
+        /// 열 위치를 가져오거나 설정합니다.
+        /// </summary>
         public int Left
         {
             get
@@ -54,7 +70,9 @@ namespace SteamB23.Consolar.UI
                 }
             }
         }
-
+        /// <summary>
+        /// 행 위치를 가져오거나 설정합니다.
+        /// </summary>
         public int Top
         {
             get
@@ -70,6 +88,9 @@ namespace SteamB23.Consolar.UI
             }
         }
 
+        /// <summary>
+        /// 최대 길이를 가져오거나 설정합니다.
+        /// </summary>
         public int Length
         {
             get
@@ -77,6 +98,9 @@ namespace SteamB23.Consolar.UI
                 return consoleTexts[0].Length;
             }
         }
+        /// <summary>
+        /// 오른쪽 정렬 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool IsRight
         {
             get
@@ -92,6 +116,10 @@ namespace SteamB23.Consolar.UI
             }
         }
 
+
+        /// <summary>
+        /// 전경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor ForegroundColor
         {
             get
@@ -106,6 +134,9 @@ namespace SteamB23.Consolar.UI
                 }
             }
         }
+        /// <summary>
+        /// 배경색을 가져오거나 설정합니다.
+        /// </summary>
         public ConsoleColor BackgroundColor
         {
             get
@@ -122,6 +153,17 @@ namespace SteamB23.Consolar.UI
         }
         #region 생성자
         // Multiline string
+        /// <summary>
+        /// 열의 최대 갯수와 텍스트, 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// </summary>
+        /// <param name="row">열의 최대 갯수입니다.</param>
+        /// <param name="text">출력할 텍스트입니다.</param>
+        /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
+        /// <param name="top">출력할 텍스트의 세로 위치입니다.</param>
+        /// <param name="length">출력할 텍스트의 최대 길이입니다.</param>
+        /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
+        /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
+        /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public TextLine(int row, string text, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
@@ -136,6 +178,17 @@ namespace SteamB23.Consolar.UI
 
         }
         // strings
+        /// <summary>
+        /// 열의 최대 갯수와 텍스트 배열, 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// </summary>
+        /// <param name="row">열의 최대 갯수입니다.</param>
+        /// <param name="texts">출력할 텍스트의 배열입니다.</param>
+        /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
+        /// <param name="top">출력할 텍스트의 세로 위치입니다.</param>
+        /// <param name="length">출력할 텍스트의 최대 길이입니다.</param>
+        /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
+        /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
+        /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public TextLine(int row, string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
@@ -147,6 +200,16 @@ namespace SteamB23.Consolar.UI
                     new ConsoleText(left, top + i, length, foregroundColor, backgroundColor, isRight);
             }
         }
+        /// <summary>
+        /// 텍스트의 배열과 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// </summary>
+        /// <param name="texts">출력할 텍스트의 배열입니다.</param>
+        /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
+        /// <param name="top">출력할 텍스트의 세로 위치입니다.</param>
+        /// <param name="length">출력할 텍스트의 최대 길이입니다.</param>
+        /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
+        /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
+        /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public TextLine(string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[texts.Length];
@@ -159,6 +222,16 @@ namespace SteamB23.Consolar.UI
             }
         }
         // Empty
+        /// <summary>
+        /// 열의 최대 갯수와 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// </summary>
+        /// <param name="row">열의 최대 갯수입니다.</param>
+        /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
+        /// <param name="top">출력할 텍스트의 세로 위치입니다.</param>
+        /// <param name="length">출력할 텍스트의 최대 길이입니다.</param>
+        /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
+        /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
+        /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public TextLine(int row, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
@@ -171,6 +244,9 @@ namespace SteamB23.Consolar.UI
         }
 
         #endregion
+        /// <summary>
+        /// 이 인스턴스를 사용하여 콘솔창에 출력합니다.
+        /// </summary>
         public void Present()
         {
             for (int i = 0; i < consoleTexts.Length; i++)
@@ -178,6 +254,9 @@ namespace SteamB23.Consolar.UI
                 consoleTexts[i].Present();
             }
         }
+        /// <summary>
+        /// 이 인스턴스의 위치에 출력했던 내용을 제거합니다.
+        /// </summary>
         public void Depresent()
         {
             for (int i = 0; i < consoleTexts.Length; i++)
