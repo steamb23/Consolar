@@ -32,7 +32,7 @@ namespace ConsolarTest
             textLine.Depresent();
             */
             // 선택지 테스트
-            Option option = new Option(new string[] { "1. 집으로", "2. 강으로", "3. 산으로", "4. 들로" }, 0, 0, 50);
+            Option option = new Option(new string[] { "1. 집으로", "2. 강으로", "3. 산으로", "4. 들로", "5. 학교로", "6. 식당으로", "7. 시내로", }, 30, 5, 20);
             switch (option.GetSelect())
             {
                 case 0:
@@ -47,9 +47,19 @@ namespace ConsolarTest
                 case 3:
                     Console.WriteLine("들에 가자.");
                     break;
+                case 4:
+                    Console.WriteLine("학교에 가자.");
+                    break;
+                case 5:
+                    Console.WriteLine("식당에 가자.");
+                    break;
+                case 6:
+                    Console.WriteLine("시내에 가자.");
+                    break;
+                default:
+                    Console.WriteLine("지원되는 명령이 아닙니다.");
+                    break;
             }
-
-            Console.ReadKey(true);
         }
     }
 }
