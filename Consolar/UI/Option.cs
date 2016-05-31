@@ -98,7 +98,7 @@ namespace SteamB23.Consolar.UI
         /// <param name="selectedForegroundColor">선택된 텍스트의 전경색입니다.</param>
         /// <param name="selectedBackgroundColor">선택된 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public Option(string[] elements, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor selectedForegroundColor = ConsoleColor.White, ConsoleColor selectedBackgroundColor = ConsoleColor.Black, bool isRight = false)
+        public Option(string[] elements, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor selectedForegroundColor = ConsoleColor.Black, ConsoleColor selectedBackgroundColor = ConsoleColor.Gray, bool isRight = false)
         {
             this.textLine = new TextLine(elements, left, top, length, foregroundColor, backgroundColor, isRight);
             this.ForegroundColor = foregroundColor;
