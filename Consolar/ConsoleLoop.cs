@@ -2,6 +2,9 @@
 
 namespace SteamB23.Consolar
 {
+    /// <summary>
+    /// 구조화된 루프를 지원합니다.
+    /// </summary>
     public class ConsoleLoop
     {
         bool isRun;

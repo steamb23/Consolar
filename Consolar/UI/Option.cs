@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace SteamB23.Consolar.UI
 {
+    /// <summary>
+    /// 선택지기능을 제공합니다.
+    /// </summary>
     public class Option
     {
         TextLine textLine;
