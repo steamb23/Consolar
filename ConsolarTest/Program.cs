@@ -8,6 +8,7 @@ namespace ConsolarTest
     {
         static void Main(string[] args)
         {
+            /*
             InputManager inputMgr = new InputManager();
             
             // 생성 테스트
@@ -30,9 +31,11 @@ namespace ConsolarTest
 
             Console.ReadKey(true);
             //textLine.Depresent();
-            
+            */
+
             // 선택지 테스트
-            Option option = new Option(new string[] { "1. 집으로", "2. 강으로", "3. 산으로", "4. 들로", "5. 학교로", "6. 식당으로", "7. 시내로", }, 30, 5, 20);
+            Option option = new Option(new string[] { "1. 집으로", "2. 강으로", "3. 산으로", "4. 들로", "5. 학교로", "6. 식당으로", "7. 시내로", }, 30, 5, 20
+                ,backgroundColor:ConsoleColor.DarkMagenta);
             switch (option.GetSelect())
             {
                 case 0:
