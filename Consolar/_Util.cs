@@ -5,7 +5,9 @@ namespace SteamB23.Consolar
 {
     internal static class _Util
     {
-        internal static Regex Line = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
-        internal static Regex ColorCommand = new Regex(@"\[([c])\s(\w+)\]", RegexOptions.Compiled);
+        internal const string ConsoleTags = "fc|bc|c";
+
+        internal static Regex LineRegex = new Regex(@"\r\n|\r|\n", RegexOptions.Compiled);
+        internal static Regex ConsoleTagRegex = new Regex(@"\[("+ ConsoleTags + @")\s(\w+)\]", RegexOptions.Compiled);
     }
 }

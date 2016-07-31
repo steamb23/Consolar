@@ -7,36 +7,55 @@ namespace SteamB23.Consolar
 {
     public static class ConsoleEx
     {
-        public static void WriteLine(string value, ConsoleColor defaultColor = ConsoleColor.Gray)
+        public static void WriteLine(string value, ConsoleColor defaultForegroundColor = ConsoleColor.Gray, ConsoleColor defaultBackgroundColor = ConsoleColor.Black)
         {
-            Write(value, defaultColor);
+            Write(value, defaultForegroundColor, defaultBackgroundColor);
             Console.WriteLine();
         }
-        public static void Write(string value, ConsoleColor defaultColor = ConsoleColor.Gray)
+        public static void Write(string value, ConsoleColor defaultForegroundColor = ConsoleColor.Gray, ConsoleColor defaultBackgroundColor = ConsoleColor.Black)
         {
-            string[] commandText = _Util.ColorCommand.Split(value);
-            Console.Write(commandText[0]);
-            for (int i = 1; i + 2 < commandText.Length; i++)
+            string[] tagSplitText = _Util.ConsoleTagRegex.Split(value);
+            Console.Write(tagSplitText[0]);
+            for (int i = 1; i + 2 < tagSplitText.Length; i++)
             {
-                string command = commandText[i++];
-                string arg = commandText[i++];
+                string command = tagSplitText[i++].ToLower();
+                string arg = tagSplitText[i++].ToLower();
 
                 switch (command)
                 {
                     case "c":
-                        ConsoleColor commandedColor;
-                        if (!Enum.TryParse(arg, true, out commandedColor))
-                        {
-                            if (arg.ToLower() == "reset")
-                                Console.ForegroundColor = defaultColor;
-                            break;
-                        }
-                        Console.ForegroundColor = commandedColor;
+                    case "fc":
+                        SetForegroundColor(arg, defaultForegroundColor);
+                        break;
+                    case "bc":
+                        SetBackgroundColor(arg, defaultBackgroundColor);
                         break;
                 }
 
-                Console.Write(commandText[i]);
+                Console.Write(tagSplitText[i]);
             }
+        }
+        static void SetForegroundColor(string arg, ConsoleColor defaultForegroundColor)
+        {
+            ConsoleColor commandedColor;
+            if (!Enum.TryParse(arg, true, out commandedColor))
+            {
+                if (arg == "reset")
+                    Console.ForegroundColor = defaultForegroundColor;
+                return;
+            }
+            Console.ForegroundColor = commandedColor;
+        }
+        static void SetBackgroundColor(string arg, ConsoleColor defaultBackgroundColor)
+        {
+            ConsoleColor commandedColor;
+            if (!Enum.TryParse(arg, true, out commandedColor))
+            {
+                if (arg == "reset")
+                    Console.BackgroundColor = defaultBackgroundColor;
+                return;
+            }
+            Console.BackgroundColor = commandedColor;
         }
     }
 }

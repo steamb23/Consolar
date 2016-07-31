@@ -64,12 +64,12 @@ namespace SteamB23.Consolar
             }
             set
             {
-                value = _Util.Line.Replace(value, " ");
+                value = _Util.LineRegex.Replace(value, " ");
 
                 int asciiLength;
                 if (value == null)
                     value = "";
-                asciiLength = System.Console.OutputEncoding.GetByteCount(_Util.ColorCommand.Replace(value, ""));
+                asciiLength = System.Console.OutputEncoding.GetByteCount(_Util.ConsoleTagRegex.Replace(value, ""));
 
                 if (asciiLength <= length)
                 {

@@ -71,11 +71,11 @@ namespace SteamB23.Consolar
 
                     if (isRight)
                     {
-                        ConsoleEx.WriteLine(new string(' ', length - asciiLength) + text, foregroundColor);
+                        ConsoleEx.WriteLine(new string(' ', length - asciiLength) + text, foregroundColor, backgroundColor);
                     }
                     else
                     {
-                        ConsoleEx.WriteLine(text + new string(' ', length - asciiLength), foregroundColor);
+                        ConsoleEx.WriteLine(text + new string(' ', length - asciiLength), foregroundColor, backgroundColor);
                     }
                     Console.ResetColor();
                 }
