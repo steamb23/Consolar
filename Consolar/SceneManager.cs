@@ -31,7 +31,7 @@ namespace SteamB23.Consolar
                 this.nextScene = value;
             }
         }
-        public void SceneRun()
+        public void ChangeScene()
         {
             if (!isSceneRun)
             {
