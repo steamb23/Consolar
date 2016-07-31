@@ -210,16 +210,8 @@ namespace SteamB23.Consolar.UI
         /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
         /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public TextLine(string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
+        public TextLine(string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false) : this (texts.Length,texts,left,top,length,foregroundColor,backgroundColor,isRight)
         {
-            consoleTexts = new ConsoleText[texts.Length];
-            for (int i = 0; i < consoleTexts.Length; i++)
-            {
-                consoleTexts[i] =
-                    i < texts.Length ?
-                    new ConsoleText(texts[i], left, top + i, length, foregroundColor, backgroundColor, isRight) :
-                    new ConsoleText(left, top + i, length, foregroundColor, backgroundColor, isRight);
-            }
         }
         // Empty
         /// <summary>

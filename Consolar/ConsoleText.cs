@@ -168,14 +168,14 @@ namespace SteamB23.Consolar
         /// </summary>
         public void Present()
         {
-            Screen.Present(this);
+            ConsoleScreen.Present(this);
         }
         /// <summary>
         /// 이 인스턴스의 위치에 출력했던 내용을 제거합니다.
         /// </summary>
         public void Depresent()
         {
-            Screen.Present(new string(' ', asciiLength), left, top, length);
+            ConsoleScreen.Present(new string(' ', asciiLength), left, top, length);
         }
     }
 }

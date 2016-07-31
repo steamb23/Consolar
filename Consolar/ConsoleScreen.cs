@@ -6,14 +6,14 @@ namespace SteamB23.Consolar
     /// <summary>
     /// 콘솔창 텍스트 표시를 관리합니다.
     /// </summary>
-    public static class Screen
+    public static class ConsoleScreen
     {
         /// <summary>
-        /// <see cref="Screen"/>클래스의 정적 멤버가 호출될때 초기화되는 콘솔창의 높이입니다.
+        /// <see cref="ConsoleScreen"/>클래스의 정적 멤버가 호출될때 초기화되는 콘솔창의 높이입니다.
         /// </summary>
         public const int Top = 30;
         /// <summary>
-        /// <see cref="Screen"/>클래스의 정적 멤버가 호출될때 초기화되는 콘솔창의 너비입니다.
+        /// <see cref="ConsoleScreen"/>클래스의 정적 멤버가 호출될때 초기화되는 콘솔창의 너비입니다.
         /// </summary>
         public const int Left = 80;
         /// <summary>
@@ -21,11 +21,12 @@ namespace SteamB23.Consolar
         /// </summary>
         public const char Space = ' ';
 
-        static Screen()
+        static ConsoleScreen()
         {
             Debug.WriteLine($"Output Encoding : {Console.OutputEncoding.EncodingName}");
             Debug.WriteLine($"Input Encoding : {Console.InputEncoding.EncodingName}");
             Console.SetWindowSize(Left, Top);
+            Console.ResetColor();
         }
 
         /// <summary>
