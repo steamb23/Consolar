@@ -37,6 +37,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleEx.cs" />
     <Compile Include="ConsoleLoop.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="IPresentable.cs" />

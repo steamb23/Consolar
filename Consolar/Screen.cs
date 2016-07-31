@@ -49,7 +49,7 @@ namespace SteamB23.Consolar
             {
                 asciiLength = 0;
             }
-            InternalDraw(text, asciiLength, left, top, length, foregroundColor, backgroundColor, isRight);
+            InternalPresent(text, asciiLength, left, top, length, foregroundColor, backgroundColor, isRight);
         }
         /// <summary>
         /// <seealso cref="ConsoleText"/>클래스의 인스턴스를 사용하여 콘솔창에 텍스트를 출력합니다.
@@ -57,9 +57,9 @@ namespace SteamB23.Consolar
         /// <param name="consoleText"><seealso cref="ConsoleText"/>클래스의 인스턴스입니다.</param>
         public static void Present(ConsoleText consoleText)
         {
-            InternalDraw(consoleText.Text, consoleText.asciiLength, consoleText.Left, consoleText.Top, consoleText.Length, consoleText.ForegroundColor, consoleText.BackgroundColor, consoleText.IsRight);
+            InternalPresent(consoleText.Text, consoleText.asciiLength, consoleText.Left, consoleText.Top, consoleText.Length, consoleText.ForegroundColor, consoleText.BackgroundColor, consoleText.IsRight);
         }
-        internal static void InternalDraw(string text, int asciiLength, int left, int top, int length, ConsoleColor foregroundColor, ConsoleColor backgroundColor, bool isRight)
+        internal static void InternalPresent(string text, int asciiLength, int left, int top, int length, ConsoleColor foregroundColor, ConsoleColor backgroundColor, bool isRight)
         {
             if (left + asciiLength < Left)
             {
@@ -68,13 +68,14 @@ namespace SteamB23.Consolar
                     Console.SetCursorPosition(left, top);
                     Console.ForegroundColor = foregroundColor;
                     Console.BackgroundColor = backgroundColor;
+
                     if (isRight)
                     {
-                        Console.WriteLine(new string(' ', length - asciiLength) + text);
+                        ConsoleEx.WriteLine(new string(' ', length - asciiLength) + text, foregroundColor);
                     }
                     else
                     {
-                        Console.WriteLine(text + new string(' ', length - asciiLength));
+                        ConsoleEx.WriteLine(text + new string(' ', length - asciiLength), foregroundColor);
                     }
                     Console.ResetColor();
                 }

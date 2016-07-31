@@ -69,7 +69,7 @@ namespace SteamB23.Consolar
                 int asciiLength;
                 if (value == null)
                     value = "";
-                asciiLength = System.Console.OutputEncoding.GetByteCount(value);
+                asciiLength = System.Console.OutputEncoding.GetByteCount(_Util.ColorCommand.Replace(value, ""));
 
                 if (asciiLength <= length)
                 {

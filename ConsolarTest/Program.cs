@@ -34,7 +34,7 @@ namespace ConsolarTest
             */
 
             // 선택지 테스트
-            Option option = new Option(new string[] { "1. 집으로", "2. 강으로", "3. 산으로", "4. 들로", "5. 학교로", "6. 식당으로", "7. 시내로", }, 30, 5, 20
+            Option option = new Option(new string[] { "1. [c red]집[c reset]으로", "2. [c red]강[c reset]으로", "3. [c red]산[c reset]으로", "4. [c red]들[c reset]로", "5. [c red]학교[c reset]로", "6. [c red]식당[c reset]으로", "7. [c red]시내[c reset]로", }, 30, 5, 20
                 ,backgroundColor:ConsoleColor.DarkMagenta);
             switch (option.GetSelect())
             {
