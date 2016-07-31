@@ -8,6 +8,9 @@ namespace ConsolarTest
     {
         static void Main(string[] args)
         {
+            ConsoleScreen.ShowInfomation();
+            Console.WriteLine("ㅎㅎ");
+            Console.ReadKey();
             /*
             InputManager inputMgr = new InputManager();
             

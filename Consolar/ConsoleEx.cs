@@ -35,6 +35,11 @@ namespace SteamB23.Consolar
                 Console.Write(tagSplitText[i]);
             }
         }
+        public static void ResetColor()
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
         static void SetForegroundColor(string arg, ConsoleColor defaultForegroundColor)
         {
             ConsoleColor commandedColor;

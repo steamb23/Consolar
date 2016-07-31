@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace SteamB23.Consolar
 {
@@ -23,10 +24,18 @@ namespace SteamB23.Consolar
 
         static ConsoleScreen()
         {
-            Debug.WriteLine($"Output Encoding : {Console.OutputEncoding.EncodingName}");
-            Debug.WriteLine($"Input Encoding : {Console.InputEncoding.EncodingName}");
             Console.SetWindowSize(Left, Top);
-            Console.ResetColor();
+            ConsoleEx.ResetColor();
+            Console.Clear();
+        }
+        public static void ShowInfomation()
+        {
+            Present("C o n s o l a r", 33, 5, 16, ConsoleColor.White);
+            Present("Infomation", 35, 6, 10, ConsoleColor.Gray);
+            Present("Console UI extension library", 20, 10, 40, ConsoleColor.Gray);
+            Present("Copyright 2016 SteamB23", 20, 11, 40, ConsoleColor.Cyan);
+            Present($"[c green]Output Encoding[c reset] : {Console.OutputEncoding.EncodingName}", 20, 13, 60, ConsoleColor.Gray);
+            Present($"[c green]Input Encoding[c reset] : {Console.InputEncoding.EncodingName}", 20, 14, 60, ConsoleColor.Gray);
         }
 
         /// <summary>
@@ -72,13 +81,13 @@ namespace SteamB23.Consolar
 
                     if (isRight)
                     {
-                        ConsoleEx.WriteLine(new string(' ', length - asciiLength) + text, foregroundColor, backgroundColor);
+                        ConsoleEx.Write(new string(' ', length - asciiLength) + text, foregroundColor, backgroundColor);
                     }
                     else
                     {
-                        ConsoleEx.WriteLine(text + new string(' ', length - asciiLength), foregroundColor, backgroundColor);
+                        ConsoleEx.Write(text + new string(' ', length - asciiLength), foregroundColor, backgroundColor);
                     }
-                    Console.ResetColor();
+                    ConsoleEx.ResetColor();
                 }
                 else
                 {
