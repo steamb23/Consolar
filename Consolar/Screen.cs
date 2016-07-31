@@ -23,7 +23,7 @@ namespace SteamB23.Consolar
 
         static Screen()
         {
-            Debug.WriteLine($"Ouput Encoding : {Console.OutputEncoding.EncodingName}");
+            Debug.WriteLine($"Output Encoding : {Console.OutputEncoding.EncodingName}");
             Debug.WriteLine($"Input Encoding : {Console.InputEncoding.EncodingName}");
             Console.SetWindowSize(Left, Top);
         }
