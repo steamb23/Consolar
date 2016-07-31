@@ -8,7 +8,7 @@ namespace SteamB23.Consolar.UI
     /// </summary>
     public class Option
     {
-        TextLine textLine;
+        TextBox textBox;
         ConsoleColor foregroundColor;
         ConsoleColor backgroundColor;
         ConsoleColor selectedForegroundColor;
@@ -79,13 +79,13 @@ namespace SteamB23.Consolar.UI
         }
 
         /// <summary>
-        /// <seealso cref="UI.TextLine"/>의 인스턴스를 가져옵니다.
+        /// <seealso cref="UI.TextBox"/>의 인스턴스를 가져옵니다.
         /// </summary>
-        public TextLine TextLine
+        public TextBox TextBox
         {
             get
             {
-                return textLine;
+                return textBox;
             }
         }
 
@@ -103,7 +103,7 @@ namespace SteamB23.Consolar.UI
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
         public Option(string[] elements, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor selectedForegroundColor = ConsoleColor.Black, ConsoleColor selectedBackgroundColor = ConsoleColor.Gray, bool isRight = false)
         {
-            this.textLine = new TextLine(elements, left, top, length, foregroundColor, backgroundColor, isRight);
+            this.textBox = new TextBox(elements, left, top, length, foregroundColor, backgroundColor, isRight);
             this.ForegroundColor = foregroundColor;
             this.BackgroundColor = backgroundColor;
             this.SelectedForegroundColor = selectedForegroundColor;
@@ -117,7 +117,7 @@ namespace SteamB23.Consolar.UI
         {
             int currentSelectedNumber = 0;
             ConsoleText item = UpdateElementColor(currentSelectedNumber, this.SelectedForegroundColor, this.SelectedBackgroundColor);
-            textLine.Present();
+            textBox.Present();
             Console.SetCursorPosition(item.Left + item.asciiLength, item.Top);
             while (true)
             {
@@ -136,7 +136,7 @@ namespace SteamB23.Consolar.UI
                         }
                         break;
                     case ConsoleKey.DownArrow:
-                        if (currentSelectedNumber + 1 < textLine.Row)
+                        if (currentSelectedNumber + 1 < textBox.Row)
                         {
                             item = UpdateElementColor(currentSelectedNumber++, this.ForegroundColor, this.BackgroundColor);
                             item.Present();
@@ -146,9 +146,9 @@ namespace SteamB23.Consolar.UI
                         }
                         break;
                     case ConsoleKey.Enter:
-                        textLine.ForegroundColor = this.ForegroundColor;
-                        textLine.BackgroundColor = this.BackgroundColor;
-                        textLine.Depresent();
+                        textBox.ForegroundColor = this.ForegroundColor;
+                        textBox.BackgroundColor = this.BackgroundColor;
+                        textBox.Depresent();
                         return currentSelectedNumber;
                     case ConsoleKey.F1:
                     case ConsoleKey.D1:
@@ -226,14 +226,14 @@ namespace SteamB23.Consolar.UI
         }
         ConsoleText UpdateElementColor(int elementNumber, ConsoleColor foregroundColor, ConsoleColor backgroundColor)
         {
-            ConsoleText consoleText = textLine.ConsoleTexts[elementNumber];
+            ConsoleText consoleText = textBox.ConsoleTexts[elementNumber];
             consoleText.ForegroundColor = foregroundColor;
             consoleText.BackgroundColor = backgroundColor;
             return consoleText;
         }
         bool InputNumber(int number, ref int currentSelectedNumber)
         {
-            bool ok = number < textLine.Row;
+            bool ok = number < textBox.Row;
             if (ok)
             {
                 currentSelectedNumber = number;

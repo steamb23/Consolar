@@ -5,7 +5,7 @@ namespace SteamB23.Consolar.UI
     /// <summary>
     /// 콘솔에 여러줄의 텍스트를 표시하도록 여러 ConsoleText를 포함합니다.
     /// </summary>
-    public class TextLine : IPresentable
+    public class TextBox : IPresentable
     {
         ConsoleText[] consoleTexts;
         string originText;
@@ -154,7 +154,7 @@ namespace SteamB23.Consolar.UI
         #region 생성자
         // Multiline string
         /// <summary>
-        /// 열의 최대 갯수와 텍스트, 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// 열의 최대 갯수와 텍스트, 위치, 길이, 색상 등을 사용하여 <see cref="TextBox"/>클래스의 인스턴스를 초기화합니다.
         /// </summary>
         /// <param name="row">열의 최대 갯수입니다.</param>
         /// <param name="text">출력할 텍스트입니다.</param>
@@ -164,7 +164,7 @@ namespace SteamB23.Consolar.UI
         /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
         /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public TextLine(int row, string text, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
+        public TextBox(int row, string text, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
             var textLines = SplitText(text);
@@ -179,7 +179,7 @@ namespace SteamB23.Consolar.UI
         }
         // strings
         /// <summary>
-        /// 열의 최대 갯수와 텍스트 배열, 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// 열의 최대 갯수와 텍스트 배열, 위치, 길이, 색상 등을 사용하여 <see cref="TextBox"/>클래스의 인스턴스를 초기화합니다.
         /// </summary>
         /// <param name="row">열의 최대 갯수입니다.</param>
         /// <param name="texts">출력할 텍스트의 배열입니다.</param>
@@ -189,7 +189,7 @@ namespace SteamB23.Consolar.UI
         /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
         /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public TextLine(int row, string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
+        public TextBox(int row, string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
             for (int i = 0; i < consoleTexts.Length; i++)
@@ -201,7 +201,7 @@ namespace SteamB23.Consolar.UI
             }
         }
         /// <summary>
-        /// 텍스트의 배열과 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// 텍스트의 배열과 위치, 길이, 색상 등을 사용하여 <see cref="TextBox"/>클래스의 인스턴스를 초기화합니다.
         /// </summary>
         /// <param name="texts">출력할 텍스트의 배열입니다.</param>
         /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
@@ -210,12 +210,12 @@ namespace SteamB23.Consolar.UI
         /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
         /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public TextLine(string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false) : this (texts.Length,texts,left,top,length,foregroundColor,backgroundColor,isRight)
+        public TextBox(string[] texts, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false) : this (texts.Length,texts,left,top,length,foregroundColor,backgroundColor,isRight)
         {
         }
         // Empty
         /// <summary>
-        /// 열의 최대 갯수와 위치, 길이, 색상 등을 사용하여 <see cref="TextLine"/>클래스의 인스턴스를 초기화합니다.
+        /// 열의 최대 갯수와 위치, 길이, 색상 등을 사용하여 <see cref="TextBox"/>클래스의 인스턴스를 초기화합니다.
         /// </summary>
         /// <param name="row">열의 최대 갯수입니다.</param>
         /// <param name="left">출력할 텍스트의 가로 위치입니다.</param>
@@ -224,7 +224,7 @@ namespace SteamB23.Consolar.UI
         /// <param name="foregroundColor">출력할 텍스트의 전경색입니다.</param>
         /// <param name="backgroundColor">출력할 텍스트의 배경색입니다.</param>
         /// <param name="isRight">오른쪽으로 정렬할지 지정합니다.</param>
-        public TextLine(int row, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
+        public TextBox(int row, int left, int top, int length, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black, bool isRight = false)
         {
             consoleTexts = new ConsoleText[row];
             for (int i = 0; i < consoleTexts.Length; i++)

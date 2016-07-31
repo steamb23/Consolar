@@ -48,7 +48,7 @@
     <Compile Include="ConsoleText.cs" />
     <Compile Include="UI\Option.cs" />
     <Compile Include="_Util.cs" />
-    <Compile Include="UI\TextLine.cs" />
+    <Compile Include="UI\TextBox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
