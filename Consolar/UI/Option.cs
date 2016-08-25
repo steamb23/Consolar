@@ -6,7 +6,7 @@ namespace SteamB23.Consolar.UI
     /// <summary>
     /// 선택지기능을 제공합니다.
     /// </summary>
-    public class Option
+    public class Option : IPresentable
     {
         TextBox textBox;
         ConsoleColor foregroundColor;
@@ -243,6 +243,16 @@ namespace SteamB23.Consolar.UI
                 currentSelectedNumber = number;
             }
             return ok;
+        }
+
+        public void Present()
+        {
+            textBox.Present();
+        }
+
+        public void Depresent()
+        {
+            textBox.Depresent();
         }
     }
 }
