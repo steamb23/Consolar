@@ -113,7 +113,7 @@ namespace SteamB23.Consolar.UI
         /// 선택지를 표시한 후 선택된 원소의 번호를 반환합니다.
         /// </summary>
         /// <returns>선택된 원소의 번호</returns>
-        public int GetSelect()
+        public int GetSelect(bool isKeep = false)
         {
             int currentSelectedNumber = 0;
             ConsoleText item = UpdateElementColor(currentSelectedNumber, this.SelectedForegroundColor, this.SelectedBackgroundColor);
@@ -146,9 +146,13 @@ namespace SteamB23.Consolar.UI
                         }
                         break;
                     case ConsoleKey.Enter:
-                        textBox.ForegroundColor = this.ForegroundColor;
-                        textBox.BackgroundColor = this.BackgroundColor;
-                        textBox.Depresent();
+                        if (!isKeep)
+                        {
+                            textBox.ForegroundColor = this.ForegroundColor;
+                            textBox.BackgroundColor = this.BackgroundColor;
+                            textBox.Depresent();
+                        }
+                        Console.SetCursorPosition(0, textBox.Top+textBox.ConsoleTexts.Length);
                         return currentSelectedNumber;
                     case ConsoleKey.F1:
                     case ConsoleKey.D1:
