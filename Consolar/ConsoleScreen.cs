@@ -56,7 +56,7 @@ namespace SteamB23.Consolar
             int asciiLength;
             try
             {
-                asciiLength = Console.OutputEncoding.GetByteCount(text);
+                asciiLength = Util.GetAsciiLength(text);
             }
             catch (ArgumentNullException)
             {

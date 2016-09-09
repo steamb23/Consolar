@@ -45,7 +45,7 @@
     <Compile Include="ConsoleScreen.cs" />
     <Compile Include="ConsoleText.cs" />
     <Compile Include="UI\Option.cs" />
-    <Compile Include="_Util.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="UI\TextBox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -258,7 +258,7 @@ namespace SteamB23.Consolar.UI
         }
         string[] SplitText(string text)
         {
-            return _Util.LineRegex.Split(text);
+            return Util.LineRegex.Split(text);
         }
     }
 }

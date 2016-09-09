@@ -29,7 +29,7 @@ namespace SteamB23.Consolar
         /// <param name="defaultBackgroundColor">reset명령시 사용될 기본 배경 색입니다.</param>
         public static void Write(string value, ConsoleColor defaultForegroundColor = ConsoleColor.Gray, ConsoleColor defaultBackgroundColor = ConsoleColor.Black)
         {
-            string[] tagSplitText = _Util.ConsoleTagRegex.Split(value);
+            string[] tagSplitText = Util.ConsoleTagRegex.Split(value);
             Console.Write(tagSplitText[0]);
             for (int i = 1; i + 2 < tagSplitText.Length; i++)
             {
