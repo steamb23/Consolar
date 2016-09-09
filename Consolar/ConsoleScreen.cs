@@ -28,6 +28,9 @@ namespace SteamB23.Consolar
             ConsoleEx.ResetColor();
             Console.Clear();
         }
+        /// <summary>
+        /// Consolar 라이브러리와 인코딩에 관한 정보를 출력합니다.
+        /// </summary>
         public static void ShowInfomation()
         {
             Present("C o n s o l a r", 33, 5, 16, ConsoleColor.White);

@@ -5,13 +5,28 @@ using System.Text;
 
 namespace SteamB23.Consolar
 {
+    /// <summary>
+    /// <see cref="Console"/>의 기능을 확장한 메서드를 포함하는 정적 클래스입니다.
+    /// </summary>
     public static class ConsoleEx
     {
+        /// <summary>
+        /// 뒤에 현재 줄 종결자가 오는, 지정한 문자열 값을 확장 기능을 이용하여 씁니다.
+        /// </summary>
+        /// <param name="value">쓸 값입니다.</param>
+        /// <param name="defaultForegroundColor">reset명령시 사용될 기본 문자 색입니다.</param>
+        /// <param name="defaultBackgroundColor">reset명령시 사용될 기본 배경 색입니다.</param>
         public static void WriteLine(string value, ConsoleColor defaultForegroundColor = ConsoleColor.Gray, ConsoleColor defaultBackgroundColor = ConsoleColor.Black)
         {
             Write(value, defaultForegroundColor, defaultBackgroundColor);
             Console.WriteLine();
         }
+        /// <summary>
+        /// 지정한 문자열 값을 확장 기능을 이용하여 씁니다.
+        /// </summary>
+        /// <param name="value">쓸 값입니다.</param>
+        /// <param name="defaultForegroundColor">reset명령시 사용될 기본 문자 색입니다.</param>
+        /// <param name="defaultBackgroundColor">reset명령시 사용될 기본 배경 색입니다.</param>
         public static void Write(string value, ConsoleColor defaultForegroundColor = ConsoleColor.Gray, ConsoleColor defaultBackgroundColor = ConsoleColor.Black)
         {
             string[] tagSplitText = _Util.ConsoleTagRegex.Split(value);
@@ -35,6 +50,9 @@ namespace SteamB23.Consolar
                 Console.Write(tagSplitText[i]);
             }
         }
+        /// <summary>
+        /// 색을 초기화합니다.
+        /// </summary>
         public static void ResetColor()
         {
             Console.ForegroundColor = ConsoleColor.Gray;

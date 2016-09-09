@@ -237,7 +237,7 @@ namespace SteamB23.Consolar.UI
 
         #endregion
         /// <summary>
-        /// 이 인스턴스를 사용하여 콘솔창에 출력합니다.
+        /// 이 인스턴스의 내용을 콘솔창에 출력합니다.
         /// </summary>
         public void Present()
         {
@@ -247,7 +247,7 @@ namespace SteamB23.Consolar.UI
             }
         }
         /// <summary>
-        /// 이 인스턴스의 위치에 출력했던 내용을 제거합니다.
+        /// 이 인스턴스가 가리키고 있는 위치의 내용을 지웁니다.
         /// </summary>
         public void Depresent()
         {

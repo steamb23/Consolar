@@ -244,12 +244,17 @@ namespace SteamB23.Consolar.UI
             }
             return ok;
         }
-
+        /// <summary>
+        /// 이 인스턴스의 내용을 콘솔창에 출력합니다.
+        /// </summary>
         public void Present()
         {
             textBox.Present();
         }
 
+        /// <summary>
+        /// 이 인스턴스가 가리키고 있는 위치의 내용을 지웁니다.
+        /// </summary>
         public void Depresent()
         {
             textBox.Depresent();
